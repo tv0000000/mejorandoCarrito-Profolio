@@ -1,0 +1,17 @@
+[
+    {"id":1, "nombre":"CrispyBurger", "descripcion":"Carne smash, doble cheddar, panceta, cebolla crispy y salsa Club. Pan con sésamo y papas ahumadas crocantes con triple cocción.", "precio":200, "img":"img/hamburguesa1.jpg", "cantidad":1},
+    
+    {"id":2, "nombre":"ClassicBurger", "descripcion":"Carne smash, lechuga, tomate, queso mozzarella, cebolla crispy, pickles de pepino, y alioli de ajo. Pan liso increible y papas.", "precio":200, "img":"img/hamburguesa2.jpg", "cantidad":1},
+    
+    {"id":3, "nombre":"OnionBurger", "descripcion":"Carne smash, doble cheddar, cebolla crispy, ketchup y pan con parmesano. Papas ahumadas triple cocción con salsa especial.", "precio":200, "img":"img/hamburguesa3.jpg", "cantidad":1},
+    
+    {"id":4, "nombre":"OklaBurger", "descripcion":"Doble carne smasheada en cebolla, doble cheddar, pepinillos, muzzarelitas, honey mustard, Con papas triple cocción.", "precio":200, "img":"img/hamburguesa4.jpg", "cantidad":1},
+    
+    {"id":5, "nombre":"homeBurger", "descripcion":"Doble carne smash, doble cheddar, tomate, lechuga, salsa del cuarto y pan con sésamo. Con papas triple cocción.", "precio":100, "img":"img/hamburguesa5.jpg", "cantidad":1},
+    
+    {"id":6, "nombre":"BBQBurger", "descripcion":"Doble carne smash, doble cheddar, panceta, cebolla crispy, barbacoa Jack Daniels y pan con parmesano y papas.", "precio":100, "img":"img/hamburguesa6.jpg", "cantidad":1},
+    
+    {"id":7, "nombre":"SimpleBurger", "descripcion":"Carne smash, doble cheddar y pan con sésamo, tomate y salsa de cerveza artesanal. Con papas con salsa especial y triple cocción.", "precio":100, "img":"img/hamburguesa7.jpg", "cantidad":1},
+    
+    {"id":8, "nombre":"ChickenBurger", "descripcion":"Pollo crispy rebozado en panko y sésamo, lechuga capuchina, pickles de pepino y alioli de ajo en pan con sésamo.", "precio":100, "img":"img/hamburguesa8.jpg", "cantidad":1}
+    ]
