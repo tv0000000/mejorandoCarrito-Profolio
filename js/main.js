@@ -15,15 +15,21 @@ const navBar = () => {
       <button class="navbar-toggler" type="button"></button>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <button class="buttonNav" id="botonCarrito"><i class="fa-solid fa-cart-shopping"></i>
-            <span id="contadorCarrito">0</span></button>
+            <button class="buttonNav" id="botonCarrito"><i class="fa-solid fa-cart-shopping"></i></button>
+            <span class="contadorCarrito" id="contadorCarrito"></span>
           </li>
         </ul>`
-
+  
   nav.appendChild(vemosNav);
 }
  
 navBar()
+
+const contadorCarrito = document.getElementById("contadorCarrito");
+const numeroCarrito = () => {
+  contadorCarrito.style.display = "block";
+  contadorCarrito.innerText = carrito.length;
+};
 
 // PRODUCTOS
 const archivoJson = "json/productos.json";
@@ -46,7 +52,7 @@ function mostrarProductos(productos) {
                     <div class="card-body">
                     <h2 class="card-title">${producto.nombre}</h2>
                     <p class="card-text">${producto.descripcion} </p>
-                    <p class="card-text">$ ${producto.precio} </p></div>
+                    <p class="card-text">Precio: $ ${producto.precio} </p></div>
                     <button class="btn btn-dark buttonCard" id = "boton${producto.id}">Añadir al Carrito</button>
                     </div>`
 
@@ -63,6 +69,7 @@ function mostrarProductos(productos) {
 const agregar = (id, productos) => {
   console.log(id);
   const enCarrito = carrito.find(producto => producto.id === id);
+  // const enCarrito = carrito.some((producto) => producto.id === id)
   if (enCarrito) {
     enCarrito.cantidad++;
     // console.log(enCarrito);
@@ -73,73 +80,11 @@ const agregar = (id, productos) => {
     // console.log(producto);
     // costo();
   }
-
+  numeroCarrito();
   // localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
-// MODAL
-const verCarrito = document.getElementById("botonCarrito");
 
-verCarrito.addEventListener("click", () => {
-// console.log("funciona y no se repite?")
-// modal.className = "mostrar";
-modal.style.display = "flex";
-modal.innerHTML = "";
-
-const modalHeader = document.createElement("div");
-modalHeader.className = "modalHeader";
-modalHeader.innerHTML = `
-<h3>Carrito</h3>
-<i class="fa-regular fa-circle-xmark modalButton" id="buttonClose"></i>
-`
-modal.appendChild(modalHeader);
-
-
-// INTENTANDO QUE BOTTON CIERRE MODAL
-const buttonClose = document.getElementById("buttonClose")
-buttonClose.addEventListener("click", () => {
-  modal.style.display = "none";
-  // modal.className =  "ocultar"; entiendo que no funciona asi porque con style  solo le estoy agregando ese estilo indivicual y no estoy modificando el resto de propiedades que le di en css. Si le pongo una nueva clase piso la anterior entonces ahí se va todo al demonio. 
-})
-
-
-// const modalButton = document.createElement("div");
-// modalButton.className = "modalButton";
-// modalButton.innerHTML = `
-// <i class="fa-regular fa-circle-xmark"></i>
-// `;
-// modal.appendChild(modalButton);
-
-carrito.forEach(producto => {
-  const carritoContent = document.createElement("div");
-  carritoContent.className = "carritoContenido"
-  carritoContent.innerHTML =
-       `<img src= ${producto.img} alt= ${producto.nombre}>
-        <h3>${producto.nombre}</h3>
-        <button class="btn-dark botonS" id ="botonResta${producto.id}"> - </button>
-        <button class=" btn-dark botonS" id ="botonSuma${producto.id}"> + </button>
-        <p> Cantidad: ${producto.cantidad}</p>
-        <p class="card-text">$ ${producto.precio}</p></div>
-        `
-  modal.appendChild(carritoContent);
-      });
-
-const costo = () => {
-  let total = carrito.reduce((acumulador, productos) => acumulador + (productos.cantidad * productos.precio), 0);
-  console.log(total);
-
-  const muestroTotal = document.createElement("div");
-  muestroTotal.className = "muestroTotal";
-  muestroTotal.innerHTML = `
-  <p class="compra">Total de la compra: $${total}</p>
-  `;
-
-  modal.appendChild(muestroTotal);
-  
-  // localStorage.setItem("carrito", JSON.stringify(carrito));
-    }
-  costo();
-}) 
 
 
 
